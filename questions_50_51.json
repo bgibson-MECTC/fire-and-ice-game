@@ -1,0 +1,174 @@
+[
+    {
+        "question": "A patient sustains a superficial partial-thickness burn. Which finding is expected?",
+        "answers": [
+            { "text": "Dry, leathery eschar", "correct": false },
+            { "text": "Red, moist skin with blisters", "correct": true },
+            { "text": "Charred, painless areas", "correct": false },
+            { "text": "Full-thickness involvement", "correct": false }
+        ],
+        "rationale": "Superficial partial-thickness burns involve the epidermis and part of the dermis, presenting with red, moist skin and blistering.",
+        "hint": "Think about burns that still have sensation + moisture.",
+        "points": 100
+    },
+
+    {
+        "question": "Which electrolyte imbalance is expected during the emergent phase of a major burn?",
+        "answers": [
+            { "text": "Hypernatremia", "correct": false },
+            { "text": "Hyperkalemia", "correct": true },
+            { "text": "Hypokalemia", "correct": false },
+            { "text": "Hypocalcemia", "correct": false }
+        ],
+        "rationale": "Cell destruction releases large amounts of potassium into the bloodstream, causing hyperkalemia early in burn injury.",
+        "hint": "Cells bursting → which electrolyte moves out?",
+        "points": 100
+    },
+
+    {
+        "question": "24 hours after a major burn, which IV fluid is typically used first?",
+        "answers": [
+            { "text": "0.45% NS", "correct": false },
+            { "text": "LR (Lactated Ringer’s)", "correct": true },
+            { "text": "D5W", "correct": false },
+            { "text": "Albumin", "correct": false }
+        ],
+        "rationale": "Lactated Ringer’s is the fluid of choice during the first 24 hours due to its similarity to extracellular fluid.",
+        "hint": "What fluid keeps intravascular volume stable?",
+        "points": 100
+    },
+
+    {
+        "question": "The nurse suspects an inhalation injury. Which finding is most concerning?",
+        "answers": [
+            { "text": "Singed nasal hairs", "correct": false },
+            { "text": "Hoarseness and brassy cough", "correct": true },
+            { "text": "Soot on face", "correct": false },
+            { "text": "Anxiety and agitation", "correct": false }
+        ],
+        "rationale": "Hoarseness and brassy cough indicate airway edema and possible obstruction → requires immediate intervention.",
+        "hint": "Which sign shows the AIRWAY is closing?",
+        "points": 150
+    },
+
+    {
+        "question": "A burn patient enters the acute phase. Which priority shift occurs?",
+        "answers": [
+            { "text": "Stop fluid resuscitation immediately", "correct": false },
+            { "text": "Begin diuresis and prevent infection", "correct": true },
+            { "text": "Initiate wound closure only", "correct": false },
+            { "text": "Focus on pain only", "correct": false }
+        ],
+        "rationale": "During the acute phase, fluid shifts stabilize and the focus becomes infection prevention, wound care, and diuresis.",
+        "hint": "Phase = stabilization + infection control.",
+        "points": 120
+    },
+
+    {
+        "question": "Which wound care step comes FIRST for a patient with a chemical burn?",
+        "answers": [
+            { "text": "Apply neutralizing solution", "correct": false },
+            { "text": "Brush off dry chemicals and irrigate", "correct": true },
+            { "text": "Cover with sterile dressings", "correct": false },
+            { "text": "Assess pain level", "correct": false }
+        ],
+        "rationale": "Dry chemicals should be brushed off and the area irrigated before applying any dressings.",
+        "hint": "Before adding moisture, what must be removed?",
+        "points": 130
+    },
+
+    {
+        "question": "A patient with severe burns is at highest risk for which GI complication?",
+        "answers": [
+            { "text": "Peptic ulcer (Curling’s ulcer)", "correct": true },
+            { "text": "GERD", "correct": false },
+            { "text": "Diverticulitis", "correct": false },
+            { "text": "Constipation", "correct": false }
+        ],
+        "rationale": "Burn stress reduces GI blood flow → Curling’s ulcers can form without prophylaxis.",
+        "hint": "Burns = stress response + ↓perfusion.",
+        "points": 150
+    },
+
+    {
+        "question": "Which intervention prevents contractures in a burn patient?",
+        "answers": [
+            { "text": "Keep joints flexed for comfort", "correct": false },
+            { "text": "Perform ROM and maintain extension", "correct": true },
+            { "text": "Apply hot packs to reduce pain", "correct": false },
+            { "text": "Elevate extremities only", "correct": false }
+        ],
+        "rationale": "Burn patients are positioned in anti-contracture positions (extended joints) and require ROM exercises.",
+        "hint": "Comfort ≠ healing.",
+        "points": 120
+    },
+
+    {
+        "question": "Burn patient suddenly becomes restless and confused. What should the nurse do FIRST?",
+        "answers": [
+            { "text": "Check oxygen saturation", "correct": true },
+            { "text": "Increase IV fluids", "correct": false },
+            { "text": "Administer analgesics", "correct": false },
+            { "text": "Reorient patient", "correct": false }
+        ],
+        "rationale": "Confusion in burn patients is often hypoxia → check SpO2.",
+        "hint": "Airway is always king.",
+        "points": 150
+    },
+
+    {
+        "question": "Which nutrient is MOST important during burn recovery?",
+        "answers": [
+            { "text": "Low carb, low protein diet", "correct": false },
+            { "text": "High protein, high calorie diet", "correct": true },
+            { "text": "Low fat, low sodium diet", "correct": false },
+            { "text": "Clear liquids only", "correct": false }
+        ],
+        "rationale": "Burn patients need massive calories and protein for healing.",
+        "hint": "Tissue repair needs LOTS of these.",
+        "points": 100
+    },
+
+
+    /* ===========================
+       BLITZ CASES
+       =========================== */
+
+    {
+        "type": "blitz",
+        "question": "Correct order for burn wound debridement and dressing:",
+        "steps": [
+            "Medicate for pain",
+            "Cleanse wound",
+            "Debride necrotic tissue",
+            "Apply topical antimicrobial",
+            "Apply sterile dressing"
+        ],
+        "correct": [
+            "Medicate for pain",
+            "Cleanse wound",
+            "Debride necrotic tissue",
+            "Apply topical antimicrobial",
+            "Apply sterile dressing"
+        ]
+    },
+
+    {
+        "type": "blitz",
+        "question": "Sequence for fluid resuscitation using Parkland formula:",
+        "steps": [
+            "Calculate total fluid volume",
+            "Administer first half in first 8 hours",
+            "Administer second half in next 16 hours",
+            "Reassess urine output",
+            "Adjust rate accordingly"
+        ],
+        "correct": [
+            "Calculate total fluid volume",
+            "Administer first half in first 8 hours",
+            "Administer second half in next 16 hours",
+            "Reassess urine output",
+            "Adjust rate accordingly"
+        ]
+    }
+]
