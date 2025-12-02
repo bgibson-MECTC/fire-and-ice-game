@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🔥❄️ Fire & Ice Nursing Battle – Chapters 50 & 51</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="firebase.js"></script>
+    <script defer src="leaderboard.js"></script>
+    <script defer src="game.js"></script>
+</head>
+
+<body>
+
+    <!-- 🔐 Hidden Instructor Mode Snowflake -->
+    <div id="instructorSnowflake">❄️</div>
+
+    <!-- 🔐 Password Prompt Modal -->
+    <div id="instructorPasswordModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Instructor Login</h2>
+            <input type="password" id="instructorPasswordInput" placeholder="Enter Password" />
+            <button id="instructorPasswordSubmit">Unlock</button>
+            <button class="closeModal" data-close="passwordModal">Close</button>
+        </div>
+    </div>
+
+    <!-- 🎛️ Instructor Slide-Out Panel -->
+    <div id="instructorPanel" class="panel hidden">
+        <h2>Instructor Controls</h2>
+
+        <section>
+            <h3>Game Control</h3>
+            <button id="showAnswersBtn">Show Answers</button>
+            <button id="hideAnswersBtn">Hide Answers</button>
+            <button id="freezeTimerBtn">Freeze Timer</button>
+            <button id="addTimeBtn">+10 Seconds</button>
+            <button id="removeTimeBtn">-10 Seconds</button>
+        </section>
+
+        <section>
+            <h3>Points</h3>
+            <button id="doublePointsBtn">Double Points</button>
+            <button id="halfPointsBtn">Half Points</button>
+            <button id="bonusPointsBtn">+500 Points</button>
+            <button id="penaltyPointsBtn">-250 Points</button>
+        </section>
+
+        <section>
+            <h3>Navigation</h3>
+            <button id="nextQuestionBtn">Skip → Next</button>
+            <button id="autoRationaleBtn">Auto-Rationale ON/OFF</button>
+        </section>
+
+        <button id="closeInstructorPanel">Close Panel</button>
+    </div>
+
+    <!-- 🔥❄️ Intro Screen -->
+    <div id="introScreen" class="screen visible">
+        <h1 class="title fire-ice-title">🔥❄️ Fire & Ice Burn Battle ❄️🔥</h1>
+        <p class="subtitle">Chapters 50 & 51 Nursing Review</p>
+        <div class="fire-animation"></div>
+        <div class="ice-animation"></div>
+
+        <div class="nickname-entry">
+            <input id="playerNameInput" type="text" placeholder="Enter your battle nickname…" />
+            <button id="startGameBtn">Begin Battle</button>
+        </div>
+    </div>
+
+    <!-- 🧠 Main Game Screen -->
+    <div id="gameScreen" class="screen hidden">
+        <div class="header">
+            <div class="playerTag"><span id="playerNameLabel"></span></div>
+            <div class="timerBox">
+                <span id="timer">30</span>s
+            </div>
+            <div class="scoreBox">Score: <span id="currentScore">0</span></div>
+        </div>
+
+        <h2 id="questionText"></h2>
+
+        <div id="answersContainer"></div>
+
+        <div class="controls">
+            <button id="hintBtn">Hint (−200)</button>
+            <button id="skipBtn">Skip</button>
+        </div>
+
+        <div id="rationaleBox" class="hidden"></div>
+
+        <button id="nextBtn" class="hidden">Next</button>
+    </div>
+
+    <!-- ⚡ Chaos Round -->
+    <div id="chaosScreen" class="screen hidden">
+        <h1>⚡ Thermal Shock Round ⚡</h1>
+        <p>15 seconds. No mercy.</p>
+
+        <div id="chaosTimer">15</div>
+        <div id="chaosQuestion"></div>
+        <div id="chaosAnswers"></div>
+
+        <div id="chaosRationale" class="hidden"></div>
+        <button id="chaosNextBtn" class="hidden">Next</button>
+    </div>
+
+    <!-- 🔥 Inferno Sabotage -->
+    <div id="sabotageScreen" class="screen hidden">
+        <h1>🔥 Inferno Interference 🔥</h1>
+        <p>Steal points. Burn the competition.</p>
+
+        <div id="sabotageQuestion"></div>
+        <div id="sabotageAnswers"></div>
+
+        <button id="sabotageNextBtn" class="hidden">Next</button>
+        <div id="sabotageResults" class="hidden"></div>
+    </div>
+
+    <!-- ❄️ Burn Protocol Blitz -->
+    <div id="blitzScreen" class="screen hidden">
+        <h1>❄️ Burn Protocol Assault ❄️</h1>
+        <p>Put the steps in the correct order.</p>
+
+        <div id="blitzCase"></div>
+        <div id="blitzSteps"></div>
+
+        <button id="blitzSubmitBtn">Submit</button>
+        <div id="blitzResult" class="hidden"></div>
+        <button id="blitzNextBtn" class="hidden">Next Case</button>
+    </div>
+
+    <!-- 🏆 Final Score -->
+    <div id="finalScreen" class="screen hidden">
+        <h1>🏆 Battle Results</h1>
+        <p>Your Score: <span id="finalScore"></span></p>
+        <p id="finalMessage"></p>
+
+        <div id="titleEarned"></div>
+
+        <button id="viewLeaderboardBtn">Leaderboard</button>
+        <button id="restartGameBtn">Play Again</button>
+    </div>
+
+    <!-- 🏅 Leaderboard -->
+    <div id="leaderboardScreen" class="screen hidden">
+        <h1>🏅 Class Leaderboard</h1>
+        <div id="leaderboardTable"></div>
+        <button id="leaderboardBackBtn">Back</button>
+    </div>
+
+</body>
+</html>
