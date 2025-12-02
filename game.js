@@ -3,7 +3,8 @@
    Main Game Engine
    ======================================================= */
 
-import { savePlayerScore, loadLeaderboard } from "./leaderboard.js";
+// Leaderboard disabled for now to avoid Firebase issues
+// import { savePlayerScore, loadLeaderboard } from "./leaderboard.js";
 
 /* =======================================================
    GLOBAL VARIABLES
@@ -59,7 +60,11 @@ async function loadQuestions() {
    START GAME
    ======================================================= */
 
-document.getElementById("startGameBtn").addEventListener("click", () => {
+function setupEventListeners() {
+    console.log("Setting up event listeners...");
+    console.log("Start button:", document.getElementById("startGameBtn"));
+    
+document.getElementById("startGameBtn").addEventListener("click", async () => {
     let nameInput = document.getElementById("playerNameInput").value.trim();
     if (nameInput === "") {
         alert("Enter a nickname to begin your Fire & Ice battle!");
@@ -71,7 +76,7 @@ document.getElementById("startGameBtn").addEventListener("click", () => {
     currentScore = 0;
     currentQuestionIndex = 0;
 
-    startMainQuestion();
+    await startMainQuestion();
 });
 
 /* =======================================================
@@ -170,18 +175,26 @@ document.getElementById("autoRationaleBtn").addEventListener("click", () => {
    ======================================================= */
 
 async function startMainQuestion() {
-    await loadQuestions();
+    console.log("Starting main question. Questions available:", allQuestions.length);
+    if (allQuestions.length === 0) {
+        console.log("No questions loaded, loading now...");
+        await loadQuestions();
+    }
+    console.log("Showing game screen");
     showScreen("gameScreen");
+    console.log("Loading first question");
     loadQuestion();
 }
 
 function loadQuestion() {
+    console.log("loadQuestion called. Index:", currentQuestionIndex, "Total:", allQuestions.length);
     if (currentQuestionIndex >= allQuestions.length) {
         endGame();
         return;
     }
 
     const q = allQuestions[currentQuestionIndex];
+    console.log("Current question:", q);
 
     document.getElementById("questionText").textContent = q.question;
     const answersBox = document.getElementById("answersContainer");
@@ -590,8 +603,14 @@ function endGame() {
 
     document.getElementById("titleEarned").textContent = "Your Title: " + title;
 
-    // Save score to Firebase
-    savePlayerScore(playerName, currentScore);
+    // Save score to Firebase (disabled for now)
+    // if (savePlayerScore) {
+    //     try {
+    //         await savePlayerScore(playerName, currentScore);
+    //     } catch (err) {
+    //         console.warn("Could not save score:", err);
+    //     }
+    // }
 
     // Switch to final screen
     showScreen("finalScreen");
@@ -602,8 +621,17 @@ function endGame() {
    ======================================================= */
 
 document.getElementById("viewLeaderboardBtn").addEventListener("click", async () => {
-    await loadLeaderboard();
-    showScreen("leaderboardScreen");
+    alert("Leaderboard is temporarily disabled.");
+    // if (loadLeaderboard) {
+    //     try {
+    //         await loadLeaderboard();
+    //         showScreen("leaderboardScreen");
+    //     } catch (err) {
+    //         alert("Leaderboard unavailable. Firebase may be blocked or offline.");
+    //     }
+    // } else {
+    //     alert("Leaderboard unavailable. Firebase may be blocked or offline.");
+    // }
 });
 
 document.getElementById("leaderboardBackBtn").addEventListener("click", () => {
@@ -619,6 +647,7 @@ document.getElementById("restartGameBtn").addEventListener("click", () => {
     currentQuestionIndex = 0;
     showScreen("introScreen");
 });
+} // End of setupEventListeners()
 
 /* =======================================================
    GAME MODE BUTTON HOOKS (OPTIONAL FUTURE FEATURES)
@@ -645,6 +674,10 @@ function shuffle(array) {
    INITIALIZE ON PAGE LOAD
    ======================================================= */
 
-window.addEventListener("load", async () => {
+window.addEventListener("DOMContentLoaded", async () => {
+    console.log("DOM loaded!");
     await loadQuestions();
+    console.log("Questions loaded:", allQuestions.length);
+    setupEventListeners();
+    console.log("Event listeners set up!");
 });

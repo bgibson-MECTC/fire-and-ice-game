@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Test Game</title>
+    <style>
+        .screen { display: none; padding: 20px; }
+        .screen.visible { display: block; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+    <!-- Intro Screen -->
+    <div id="introScreen" class="screen visible">
+        <h1>Fire & Ice Game</h1>
+        <input id="playerNameInput" type="text" placeholder="Enter your name" />
+        <button id="startGameBtn" onclick="alert('Button clicked! JS is working!')">Begin Battle</button>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="gameScreen" class="screen hidden">
+        <h2>Game Screen!</h2>
+        <p>You made it to the game!</p>
+        <p id="playerNameLabel"></p>
+    </div>
+
+    <script>
+        console.log("Script starting...");
+        
+        function showScreen(id) {
+            console.log("showScreen called with:", id);
+            document.querySelectorAll(".screen").forEach(s => {
+                s.classList.remove("visible");
+                s.classList.add("hidden");
+            });
+            const screen = document.getElementById(id);
+            console.log("Found screen:", screen);
+            screen.classList.remove("hidden");
+            screen.classList.add("visible");
+        }
+
+        window.addEventListener("DOMContentLoaded", () => {
+            console.log("DOM loaded");
+            
+            const btn = document.getElementById("startGameBtn");
+            console.log("Button found:", btn);
+            
+            btn.addEventListener("click", () => {
+                console.log("Button clicked!");
+                const nameInput = document.getElementById("playerNameInput").value.trim();
+                console.log("Name entered:", nameInput);
+                
+                if (nameInput === "") {
+                    alert("Enter a nickname!");
+                    return;
+                }
+                
+                document.getElementById("playerNameLabel").textContent = "Player: " + nameInput;
+                console.log("About to show game screen...");
+                showScreen("gameScreen");
+                console.log("showScreen completed");
+            });
+            
+            console.log("Event listener added");
+        });
+    </script>
+</body>
+</html>
