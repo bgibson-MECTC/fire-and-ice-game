@@ -1,0 +1,320 @@
+/* ===========================
+   GLOBAL FIRE & ICE THEME
+   =========================== */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #0d0d0d;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Hide screens by default */
+.screen {
+    display: none;
+    padding: 20px;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.screen.visible {
+    display: block;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ===========================
+   FIRE & ICE TITLE EFFECT
+   =========================== */
+
+.fire-ice-title {
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 20px;
+    background: linear-gradient(90deg, #ff4500, #ffd700, #00ccff, #66cfff);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: pulseTitle 3s infinite;
+}
+
+@keyframes pulseTitle {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 0.8; }
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    opacity: 0.85;
+}
+
+/* ===========================
+   FIRE & ICE ANIMATIONS
+   =========================== */
+
+.fire-animation {
+    width: 100%;
+    height: 150px;
+    background: url('assets/fire.gif') center/cover no-repeat;
+    opacity: 0.6;
+}
+
+.ice-animation {
+    width: 100%;
+    height: 150px;
+    background: url('assets/ice.gif') center/cover no-repeat;
+    opacity: 0.6;
+}
+
+/* ===========================
+   NICKNAME ENTRY
+   =========================== */
+
+.nickname-entry {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.nickname-entry input {
+    padding: 15px;
+    width: 70%;
+    max-width: 280px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+}
+
+.nickname-entry button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: #ff4500;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nickname-entry button:hover {
+    background: #ff7733;
+}
+
+/* ===========================
+   HEADER ELEMENTS
+   =========================== */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    padding: 10px;
+}
+
+.timerBox {
+    font-size: 2rem;
+    color: #ff4500;
+    animation: flicker 1.5s infinite;
+}
+
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+/* ===========================
+   ANSWER BUTTONS
+   =========================== */
+
+#answersContainer button,
+#chaosAnswers button,
+#sabotageAnswers button {
+    width: 90%;
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 12px;
+    border: none;
+    font-size: 1.1rem;
+    background: #222;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+}
+
+#answersContainer button:hover,
+#chaosAnswers button:hover,
+#sabotageAnswers button:hover {
+    background: #333;
+    transform: translateY(-3px);
+}
+
+/* Correct / Wrong Effects */
+.correct {
+    background: rgba(0, 255, 100, 0.7) !important;
+}
+.wrong {
+    background: rgba(255, 60, 60, 0.7) !important;
+}
+
+/* ===========================
+   RATIONALE BOX
+   =========================== */
+
+#rationaleBox, 
+#chaosRationale {
+    margin-top: 20px;
+    padding: 15px;
+    background: #111;
+    border-left: 5px solid #00ccff;
+    border-radius: 10px;
+}
+
+/* ===========================
+   CONTROL BUTTONS
+   =========================== */
+
+.controls {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.controls button {
+    margin: 5px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    background: #444;
+    color: #fff;
+    cursor: pointer;
+}
+
+.controls button:hover {
+    background: #666;
+}
+
+/* ===========================
+   INSTRUCTOR SNOWFLAKE TRIGGER
+   =========================== */
+
+#instructorSnowflake {
+    position: fixed;
+    top: 10px;
+    right: 12px;
+    font-size: 28px;
+    cursor: pointer;
+    opacity: 0.9;
+    z-index: 9999;
+    transition: 0.3s;
+}
+
+#instructorSnowflake:hover {
+    transform: scale(1.2);
+}
+
+/* ===========================
+   INSTRUCTOR PANEL (SLIDE-OUT)
+   =========================== */
+
+.panel {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 320px;
+    height: 100%;
+    background: #111;
+    border-left: 4px solid #00ccff;
+    padding: 20px;
+    transition: right 0.4s ease;
+    z-index: 9998;
+    overflow-y: auto;
+}
+
+.panel.visible {
+    right: 0;
+}
+
+.panel button {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0;
+    border-radius: 8px;
+    border: none;
+    background: #333;
+    color: #fff;
+}
+
+.panel button:hover {
+    background: #555;
+}
+
+/* ===========================
+   MODAL WINDOWS
+   =========================== */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 11000;
+}
+
+.modal-content {
+    background: #111;
+    padding: 25px;
+    border-radius: 12px;
+    width: 85%;
+    max-width: 350px;
+    text-align: center;
+}
+
+/* ===========================
+   BUTTONS
+   =========================== */
+
+button {
+    cursor: pointer;
+}
+
+/* ===========================
+   FINAL SCREEN + LEADERBOARD
+   =========================== */
+
+#finalScreen h1 {
+    text-align: center;
+}
+
+#leaderboardTable {
+    margin-top: 20px;
+    padding: 20px;
+    background: #111;
+    border-radius: 10px;
+}
+
+/* ===========================
+   MOBILE OPTIMIZATION
+   =========================== */
+
+@media (max-width: 600px) {
+    .fire-ice-title {
+        font-size: 2rem;
+    }
+    #answersContainer button {
+        font-size: 1rem;
+    }
+    .panel {
+        width: 260px;
+    }
+}
